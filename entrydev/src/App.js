@@ -1,10 +1,13 @@
-import './App.css';
-import AnimalsList from './pages/AnimalsList';
+import Navbar from './components/Navbar';
+import { BrowserRouter, useRoutes } from 'react-router-dom';
+import { routers } from './routers';
 
 function App() {
+  const elemen = useRoutes(routers)
   return (
-    <div className="App">
-      <AnimalsList/>
+    <div>
+      <Navbar/>
+      {elemen}
     </div>
   );
 }

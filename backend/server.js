@@ -4,7 +4,7 @@ import { graphqlExpress, graphiqlExpress } from 'apollo-server-express'
 import { makeExecutableSchema } from 'graphql-tools';
 import cors from 'cors';
 import crypto from 'crypto';
-import { typeDefs } from './schema.js';
+import  typeDefs  from './schema.js';
 import mongoose from 'mongoose'
 import { URL_MONGO } from './config.js'
 

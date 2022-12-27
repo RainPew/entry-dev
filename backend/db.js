@@ -1,4 +1,4 @@
-const animals = [
+export const animals = [
     {
       _id: 1,
       name: "Dog",
@@ -16,7 +16,7 @@ const animals = [
     },
   ];
   
-  const users = [
+ export const users = [
     {
       _id: 1,
       firstName: "Nhanh",

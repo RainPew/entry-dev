@@ -1,5 +1,5 @@
 // schema
-export const typeDefs = `
+const typeDefs = `
   type Query {
    animals: [Animal]
    animal(_id:ID!): Animal
@@ -21,8 +21,13 @@ export const typeDefs = `
     age: String
   }
 
+  type Token{
+    token: String
+  }
+
   type Mutation{
     signupUser(userNew:UserInput!):Users
+    signinUser(userSignin:UserSignInInput!):Token
   }
   
   input UserInput{
@@ -31,4 +36,10 @@ export const typeDefs = `
      email:String!,
      password:String!
   }
+
+  input UserSignInInput{
+    email:String!,
+    password:String!
+ }
 `;
+export default typeDefs
