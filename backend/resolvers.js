@@ -30,11 +30,15 @@ export const resolvers = {
     },
     signinUser: async (_, { userSignin }) => {
       const user = await User.findOne({ email: userSignin.email })
+      const doMatch = await bcrypt.compare(userSignin.password, user.password)
+      if (!doMatch) {
+        throw new Error("email or password in invalid")
+      }
       if (!user) {
         throw new Error("email of password in invalid")
       }
       const token = jwt.sign({ userId: user._id }, JWT)
-      return {token}
+      return { token }
     }
   }
 };
