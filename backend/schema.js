@@ -28,6 +28,9 @@ const typeDefs = `
   type Mutation{
     signupUser(userNew:UserInput!):Users
     signinUser(userSignin:UserSignInInput!):Token
+    addAnimals(addInput: AddInput): Animal
+    updateAnimals(_id: ID!, addInput: AddInput): Animal!
+    deletelAnimals(_id: ID!): Animal
   }
   
   input UserInput{
@@ -41,5 +44,9 @@ const typeDefs = `
     email:String!,
     password:String!
  }
+  input AddInput{
+    name: String
+    age: String
+}
 `;
 export default typeDefs

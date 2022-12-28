@@ -14,6 +14,21 @@ export const animals = [
       name: 'monkey',
       age: "5"
     },
+    {
+      _id: 4,
+      name: "Hamster",
+      age: "20",
+    },
+    {
+      _id: 5,
+      name: 'Bull',
+      age: "10"
+    },
+    {
+      _id: 6,
+      name: 'Kitten',
+      age: "5"
+    },
   ];
   
  export const users = [

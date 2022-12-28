@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { useMutation } from '@apollo/client'
+import { useNavigate } from "react-router-dom";
 import { SIGN_UP_USER } from '../gql/mutation'
 
 export default function SignUp() {
+    const navigate = useNavigate()
     const [formData, setFormData] = useState("")
 
     const [signUpUser, { data, loading, error }] = useMutation(SIGN_UP_USER)
@@ -23,6 +25,7 @@ export default function SignUp() {
                 userNew: formData
             }
         });
+        navigate("/login")
     }
     return (
         <div className="form-Login mt-3 container">

@@ -5,6 +5,7 @@ import { animals, users } from './db.js';
 
 
 const User = mongoose.model("User")
+const Animal = mongoose.model("Animals")
 import jwt from 'jsonwebtoken';
 import { JWT } from './config.js';
 
@@ -19,7 +20,7 @@ export const resolvers = {
     signupUser: async (_, { userNew }) => {
       const user = await User.findOne({ email: userNew.email })
       if (user) {
-        throw new Error("user already")
+        throw new Error("User already exists")
       }
       const hashedPassword = await bcrypt.hash(userNew.password, 12)
       const newUser = new User({
@@ -39,6 +40,16 @@ export const resolvers = {
       }
       const token = jwt.sign({ userId: user._id }, JWT)
       return { token }
+    },
+    addAnimals: (parent, args) =>{
+      const anm = new Animal(args.addInput)
+      return anm.save()
+    },
+    updateAnimals:(parent, args) =>{
+      return Animal.findByIdAndUpdate(args._id, args.addInput, {new: true})  
+    },
+    deletelAnimals: (parent, args) => {
+      return animals.findByIdAndDelete(args._id)
     }
   }
 };

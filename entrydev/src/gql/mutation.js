@@ -40,3 +40,11 @@ mutation createUser($userNew: UserInput!){
     }
   }
 `
+
+export const SEARCH_ANIMALS = gql`
+query queryID ($id:ID!){
+  animal(_id:$id){
+    _id
+  }
+}
+`

@@ -23,6 +23,7 @@ mongoose.connection.on("error",(err)=>{
 })
 
 import './models/User.js'
+import './models/Animals.js'
 
 import { resolvers } from './resolvers.js';
 
