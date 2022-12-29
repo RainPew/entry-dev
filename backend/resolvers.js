@@ -12,9 +12,9 @@ import { JWT } from './config.js';
 
 export const resolvers = {
   Query: {
-    animals: () => animals,
-    animal: (_, { _id }) => animals.find(animal => animal._id == _id),
-    users: () => users
+    animals: () => Animal.find({}),
+    animal: (_, { _id }) => Animal.findById(_id),
+    users: () => User.find({}),
   },
   Mutation: {
     signupUser: async (_, { userNew }) => {
